@@ -1,0 +1,68 @@
+TRABALHO A1
+DESENVOLVIMENTO DE APLICATIVO MOBILE
+O aplicativo a ser desenvolvido deve ser simples, funcional, leve e bem organizado.
+O foco do trabalho está em aplicar os conceitos vistos em aula, e não em criar um sistema complexo. O que
+será avaliado:
+• app abre sem erros;
+• navegação funciona corretamente;
+• funcionalidades básicas (solicitadas) operando;
+• funcionalidades que façam sentido com o contexto;
+• interface clara;
+• navegação intuitiva;
+• layout minimamente organizado;
+• código organizado em arquivos/pastas;
+• separação de responsabilidades (telas, widgets etc.);
+• nomes coerentes.
+Estrutura mínima do aplicativo
+• Uma tela inicial (Home) e três telas adicionais.
+Recursos mínimos obrigatórios
+O aplicativo deve apresentar, obrigatoriamente:
+• inclusão de imagem;
+• carrossel;
+• comunicação entre telas;
+• persistência local de dados
+• persistência remota de dados.
+Tema do aplicativo
+Será sorteado entre os alunos os temas abaixo para desenvolver o aplicativo:
+Desapego de usados - 1
+Aplicativo para cadastro e visualização de itens usados para venda ou doação.
+Cada item pode conter imagem, descrição, preço (ou gratuito) e contato.
+A ideia é permitir que usuários anunciem e visualizem produtos de forma simples.
+* Júlio e Alex
+* Kethelen e Gabriel M. (1 ok)
+* Emanuel Pinheiro Cirqueira
+* Sebastião Nogueira da Fonseca Neto (1 ok)
+* João Pedro (1 ok )
+Encontrar pets - 2
+Aplicativo para divulgação de animais perdidos ou encontrados.
+Cada registro pode conter foto do pet, nome (se souber), local, descrição e contato.
+Pode incluir opção de marcar se o pet foi encontrado.
+*Erick e Hugo (1 OK)
+*Letícia e Pedro (1 OK)
+*João Víttor Oliveira Costa
+* Thallys Antonio Barbosa Silva (1 OK)
+* Vladimir
+Aulas particulares de reforço escolar - 3
+Aplicativo para conectar alunos e professores.
+Cada anúncio pode conter disciplina, nome do professor, valor, descrição e contato.
+Pode permitir visualizar professores disponíveis por disciplina.
+* Aryel (1 OK)
+* Joana
+* Leonardo Cerqueira Brasil
+* Victor Alves dos Reis Dias (1 OK)
+Receitas rápidas do dia a dia - 4
+Aplicativo para cadastro e consulta de receitas simples.
+Cada receita pode conter imagem, nome, ingredientes e modo de preparo.
+A ideia é permitir visualizar receitas de forma prática, podendo destacar receitas na tela inicial.
+* Matheus e Cauã (1 OK)
+* Lucas Gabriel e Lucas Henderson (1 OK)
+* Gisele (1 OK)
+* Zairo lins ribeiro cunha
+Projeto da A1 (9,0 pontos)
+• Protótipo das telas – 1,5 – até 25/03 8h **presencial
+• Home + primeira tela funcional – 1,5 – até 01/04 8h **meet (só tem pontuação quem apresenta)
+• Home + duas telas funcionais – 1,5 – até 08/04 8h **meet (só tem pontuação quem apresenta)
+• Trabalho completo (A1) – 1,5 (entrega – até 15/04 8h) + 3,0 (defesa): dia 15/04 (no decorrer da
+manhã)
+o Entrega em dupla e defesa individual - presencial.
+ Quem não defender, não recebe a nota da entrega.
