@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/item.dart';
 import '../widgets/carousel_widget.dart';
 import '../widgets/item_card.dart';
+import 'add_item_screen.dart';
+import 'user_items_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -91,7 +93,23 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person),
+            tooltip: 'Meus Anúncios',
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UserItemsScreen(
+                    allItems: recentItems, // Usamos os itens recentes como "banco" para o usuário ver os que adicionou
+                    onItemChanged: () => setState(() {}),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -106,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            CarouselWidget(items: featuredItems),
+            CarouselWidget(items: featuredItems.where((item) => item.isActive).toList()),
             const SizedBox(height: 24),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -116,23 +134,42 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: recentItems.length,
-              itemBuilder: (context, index) {
-                return ItemCard(item: recentItems[index]);
-              },
+            Builder(
+              builder: (context) {
+                final activeRecentItems = recentItems.where((item) => item.isActive).toList();
+                return ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: activeRecentItems.length,
+                  itemBuilder: (context, index) {
+                    return ItemCard(item: activeRecentItems[index]);
+                  },
+                );
+              }
             ),
             const SizedBox(height: 24),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Navigate to Add Item Screen
+        onPressed: () async {
+          final newItem = await Navigator.push<Item>(
+            context,
+            MaterialPageRoute(builder: (context) => const AddItemScreen()),
+          );
+          if (newItem != null) {
+            setState(() {
+              recentItems.insert(0, newItem);
+            });
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Item adicionado com sucesso!')),
+              );
+            }
+          }
         },
+        tooltip: 'Cadastrar Item',
         child: const Icon(Icons.add),
       ),
     );

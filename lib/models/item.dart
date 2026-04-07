@@ -5,6 +5,8 @@ class Item {
   final double price;
   final String imageUrl;
   final String contact;
+  bool isActive;
+  final bool isMine;
 
   Item({
     required this.id,
@@ -13,5 +15,7 @@ class Item {
     required this.price,
     required this.imageUrl,
     required this.contact,
+    this.isActive = true,
+    this.isMine = false,
   });
 }
