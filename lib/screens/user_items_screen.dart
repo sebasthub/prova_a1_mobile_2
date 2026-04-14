@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/item.dart';
+import '../helpers/db_helper.dart';
 
 class UserItemsScreen extends StatefulWidget {
   final List<Item> allItems;
@@ -81,10 +82,11 @@ class _UserItemsScreenState extends State<UserItemsScreen> {
                     trailing: Switch(
                       value: item.isActive,
                       activeColor: Colors.teal,
-                      onChanged: (value) {
+                      onChanged: (value) async {
                         setState(() {
                           item.isActive = value;
                         });
+                        await DbHelper().updateItem(item);
                         widget.onItemChanged(); // Notifica a home para atualizar a lista
                       },
                     ),
