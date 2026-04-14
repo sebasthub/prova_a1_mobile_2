@@ -26,9 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadItems() async {
     final dbHelper = DbHelper();
     final items = await dbHelper.getItems();
-    // Sort items by id ascending if assuming id is numeric/timestamp 
-    // or just visually sorting them backwards (recent first).
-    // The items from mock are IDs 1-7, new will be timestamp string. We'll just reverse to show latest.
     setState(() {
       allItems = items.reversed.toList();
       isLoading = false;
@@ -38,9 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
     final activeItems = allItems.where((item) => item.isActive).toList();
@@ -120,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ItemCard(item: activeItems[index]);
                   },
                 );
-              }
+              },
             ),
             const SizedBox(height: 24),
           ],
